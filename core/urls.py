@@ -1,9 +1,10 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from reviews import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('accounts/', include('allauth.urls')),
     path('movies/', views.movie_list, name='movie_list'),
     path('movies/add/', views.add_movie, name='add_movie'),
     path('movies/edit/<int:movie_id>/', views.edit_movie, name='edit_movie'),
